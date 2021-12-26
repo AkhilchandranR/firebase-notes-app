@@ -2,13 +2,14 @@ import React,{ useRef,useState } from 'react';
 import './SignUp.css';
 import { Link,useHistory } from 'react-router-dom';
 import { useAuth } from "../../useContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignUp() {
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
   const { signup } = useAuth()
-  const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
@@ -16,17 +17,33 @@ function SignUp() {
     e.preventDefault()
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("Passwords do not match")
+      toast.error("Passwords do not match", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        }); 
+
+      return;
     }
 
     try {
-      setError("")
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
       history.push("/login")
     } catch(error) {
-      console.log(error)
-      setError("Failed to create an account")
+      toast.error("Failed to create an account", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        }); 
     }
 
     setLoading(false)
@@ -34,6 +51,17 @@ function SignUp() {
 
     return (
         <div className="signup">
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <form className="signup__form">
                 <h1>Sign Up</h1>
                 <div className="signup__details">

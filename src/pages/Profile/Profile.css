@@ -38,6 +38,7 @@
     padding: 10px;
     margin-top: 20px;
     max-width: 85vw;
+    cursor: pointer;
 }
 .logout{
     background-color: rgb(214, 52, 52) !important;

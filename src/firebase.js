@@ -5,14 +5,25 @@ import "firebase/compat/storage";
 
 // test  version
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyCFChOP8ac-GR99yQwmMDAWkioje91tX9g",
-  authDomain: "notes-67208.firebaseapp.com",
-  projectId: "notes-67208",
-  storageBucket: "notes-67208.appspot.com",
-  messagingSenderId: "307463379627",
-  appId: "1:307463379627:web:43b0a98d339273b55df5ee",
-  measurementId: "G-FNBEVPNGMW"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
 })
+
+//production version
+// const app = firebase.initializeApp({
+//   apiKey: process.env.REACT_APP_PRODUCTION_API_KEY,
+//   authDomain: process.env.REACT_APP_PRODUCTION_AUTH_DOMAIN,
+//   projectId: process.env.REACT_APP_PRODUCTION_PROJECT_ID,
+//   storageBucket: process.env.REACT_APP_PRODUCTION_STORAGEBUCKET,
+//   messagingSenderId: process.env.REACT_APP_PRODUCTION_MESSAGING_SENDER_ID,
+//   appId: process.env.REACT_APP_PRODUCTION_APP_ID,
+//   measurementId: process.env.REACT_APP_PRODUCTION_MEASUREMENT_ID
+// })
 
 const firestore = app.firestore()
 

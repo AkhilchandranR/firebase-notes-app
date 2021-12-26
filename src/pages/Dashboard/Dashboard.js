@@ -5,7 +5,9 @@ import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import FolderIcon from '@mui/icons-material/Folder';
 
+
 function Dashboard() {
+    
     return (
         <div className="dashboard">
             <Header/>

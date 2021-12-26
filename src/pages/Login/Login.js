@@ -2,30 +2,49 @@ import React,{ useRef,useState } from 'react';
 import './Login.css';
 import { Link,useHistory } from 'react-router-dom';
 import { useAuth } from "../../useContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
    const emailRef = useRef()
    const passwordRef = useRef()
    const { login } = useAuth()
-   const [error, setError] = useState("")
    const [loading, setLoading] = useState(false)
    const history = useHistory()
 
    async function handleLogin(e) {
     e.preventDefault()
     try {
-      setError("")
       setLoading(true)
       await login(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
-      setError("Failed to log in")
+        toast.error("Failed to login", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });     
     }
     setLoading(false)
   }
 
     return (
         <div className="login">
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <form className="login__form">
                 <h1>Login</h1>
                 <div className="login__details">
@@ -42,7 +61,7 @@ function Login() {
                 </div>
                 <button type="submit" disabled={loading} onClick={handleLogin}>Login</button>
                 <div className="login__forgotPassword">
-                    <Link to="/">Forgot Password?</Link>
+                    <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
             </form>
             <p>Need an account ? <Link to='/signup'>Sign Up</Link></p>

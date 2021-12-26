@@ -1,15 +1,12 @@
-import React, { useContext, useState, useEffect, Component } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { auth } from "./firebase"
 
 const AuthContext = React.createContext()
 
-// not sure what this is for.
 export function useAuth() {
   return useContext(AuthContext)
 }
 
-// make AuthContext.Provider into a function
-// called AuthProvider.
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
@@ -47,7 +44,7 @@ export function AuthProvider({ children }) {
     return unsubscribe
   }, [])
 
-  // it defines value as all these variables and functions
+
   const value = {
     currentUser,
     login,
@@ -58,9 +55,6 @@ export function AuthProvider({ children }) {
     updatePassword
   }
 
-  // and it passes that value as a a prop called value/
-  // authcontext.provider will send all this shit down.
-  // and this whole object will get called authprovider.
   return (
     <AuthContext.Provider value={value}>
       {!loading && children}

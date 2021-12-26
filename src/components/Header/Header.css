@@ -3,14 +3,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: bisque;
     padding: 15px;
+    color: white;
     width: 100vw;
+}
+.header > a {
+    text-decoration: none;
+    color: white;
 }
 .header__profile{
     display: flex;
     align-items: center;
 }
-.header__profile > p{
+.header__profile > p > a{
     margin-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
