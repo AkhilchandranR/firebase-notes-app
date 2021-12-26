@@ -1,0 +1,55 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.dashboard__body{
+    flex: 1;
+    display: flex;
+}
+.dashboard__foldersPane{
+    background-color: black;
+    color: white;
+    flex: 0.2;
+    border-right: 1px dotted lightsteelblue;
+}
+.dashboard__createFolder{
+    display: flex;
+    justify-content: flex-end;
+    padding: 13px;
+    border-bottom: 1px solid lightgrey;
+}
+.dashboard__createFolder > .MuiSvgIcon-root{
+    cursor: pointer;
+}
+.dashboard__folder{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 13px;
+    border-bottom: 1px solid lightslategrey;
+}
+.dashboard__folder > p{
+    margin-left: 10px;
+}
+.dashboard__notesPane{
+    background-color: #222222;
+    color: white;
+    flex: 0.2;
+    border-right: 1px dotted lightsteelblue;
+}
+.dashboard__createNotes{
+    display: flex;
+    justify-content: flex-end;
+    padding: 13px;
+    border-bottom: 1px solid lightgrey;
+}
+.dashboard__createNotes > .MuiSvgIcon-root{
+    cursor: pointer;
+}
+.dashboard__note{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}

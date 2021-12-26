@@ -1,0 +1,45 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.profile__body{
+    flex: 1;
+    background-color: black;
+    display: grid;
+    place-items: center;
+}
+.profile__card{
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+}
+.profile__card > h2{
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.profile__card > p > span{
+    font-weight: 600;
+}
+.profile__card > button{
+    width: 600px;
+    background-color: rgb(51, 51, 182);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em !important;
+    font-weight: 600;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    max-width: 85vw;
+}
+.logout{
+    background-color: rgb(214, 52, 52) !important;
+    margin-top: 15px !important;
+}
