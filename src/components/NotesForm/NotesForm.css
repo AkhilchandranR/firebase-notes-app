@@ -1,0 +1,63 @@
+.notesForm__notesForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+.notesForm__cancelIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: grey;
+}
+.notesForm__notesHeader{
+    width: 95%;
+    border: 1px solid lightgrey;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+.notesForm__notesHeader > input{
+    border: none;
+    flex: 1;
+}
+.notesForm__notesHeader > input:focus{
+    outline: none;
+}
+.notesForm__notesForm > p{
+    margin-top: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+} 
+.notesForm__notesTags{
+    margin-top: 15px;
+}
+.notesForm__notesContent{
+    width: 95%;
+    height: 450px;
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.notesForm__notesContent > textarea {
+    border: none;
+    flex: 1;
+}
+.notesForm__notesContent > textarea:focus{
+    outline: none;
+}
+.notesForm__notesForm > button{
+    width: 200px;
+    border: none;
+    background-color: #636468;
+    color: white;
+    padding: 15px;
+    border-radius: 999px;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.notesForm__notesForm > h2{
+    margin-top: 15px;
+}

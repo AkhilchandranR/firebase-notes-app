@@ -1,12 +1,15 @@
-import React from 'react'
+import React,{ useState } from 'react';
 import './Dashboard.css';
 import Header from '../../components/Header/Header'
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import FolderIcon from '@mui/icons-material/Folder';
+import NotesForm from '../../components/NotesForm/NotesForm';
+import NoteSelected from '../../components/NoteSelected/NoteSelected';
 
 
 function Dashboard() {
+    const[editModeOn,setEditModeOn] = useState(false);
     
     return (
         <div className="dashboard">
@@ -30,7 +33,13 @@ function Dashboard() {
                         <p>Notes body truncated</p>
                     </div>
                 </div>
-                <div className="dashboard__selectedNotePane"></div>
+                <div className="dashboard__selectedNotePane">
+                    {editModeOn ? (
+                        <NotesForm cancelEdit={()=>setEditModeOn(false)}/>
+                    ):(
+                        <NoteSelected onEdit={()=>setEditModeOn(true)}/>
+                    )}
+                </div>
             </div>
         </div>
     )
