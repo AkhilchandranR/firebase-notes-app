@@ -7,10 +7,9 @@ import FolderIcon from '@mui/icons-material/Folder';
 import NotesForm from '../../components/NotesForm/NotesForm';
 import NoteSelected from '../../components/NoteSelected/NoteSelected';
 
-
 function Dashboard() {
     const[editModeOn,setEditModeOn] = useState(false);
-    
+
     return (
         <div className="dashboard">
             <Header/>
@@ -18,7 +17,7 @@ function Dashboard() {
                 <div className="dashboard__foldersPane">
                         <div className="dashboard__createFolder">
                             <CreateNewFolderIcon fontSize={'large'}/>
-                        </div>            
+                        </div>
                         <div className="dashboard__folder">
                             <FolderIcon/>
                             <p>Folder Name</p>
@@ -27,7 +26,7 @@ function Dashboard() {
                 <div className="dashboard__notesPane">
                     <div className="dashboard__createNotes">
                         <NoteAddIcon fontSize={'large'}/>
-                    </div>            
+                    </div>
                     <div className="dashboard__note">
                         <h4>Notes Header</h4>
                         <p>Notes body truncated</p>
