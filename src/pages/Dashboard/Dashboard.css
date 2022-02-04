@@ -23,16 +23,6 @@
 .dashboard__createFolder > .MuiSvgIcon-root{
     cursor: pointer;
 }
-.dashboard__folder{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 13px;
-    border-bottom: 1px solid lightslategrey;
-}
-.dashboard__folder > p{
-    margin-left: 10px;
-}
 .dashboard__notesPane{
     background-color: #222222;
     color: white;
@@ -56,4 +46,8 @@
 .dashboard__selectedNotePane{
     flex: 0.5;
     padding: 20px;
+}
+.setActive{
+    background-color: darkgray !important;
+    border: 1px solid black;
 }

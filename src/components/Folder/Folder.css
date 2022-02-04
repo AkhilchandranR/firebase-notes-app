@@ -1,0 +1,16 @@
+.dashboard__folder{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 13px;
+    border-bottom: 1px solid lightslategrey;
+}
+.dashboard__folder > p{
+    margin-left: 10px;
+}
+.dashboard__folder:hover{
+    background-color: grey;
+}
+.dashboard__folder:active{
+    background-color: darkgray;
+}

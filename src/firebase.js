@@ -3,6 +3,7 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
+
 // test  version
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
@@ -28,10 +29,7 @@ const app = firebase.initializeApp({
 const firestore = app.firestore()
 
 export const database = {
-    folders: firestore.collection("folders"),
-    files: firestore.collection("files"),
-    stamp: firebase.firestore.FieldValue.serverTimestamp,
-  
+    user: firestore.collection('users')
   }
 
   export const storage = app.storage()
