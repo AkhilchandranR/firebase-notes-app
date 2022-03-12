@@ -4,6 +4,7 @@
     width: 100vw;
     height: 100vh;
 }
+
 .dashboard__body{
     flex: 1;
     display: flex;
@@ -28,6 +29,7 @@
     color: white;
     flex: 0.25;
     border-right: 1px dotted lightsteelblue;
+    overflow: hidden;
 }
 .dashboard__createNotes{
     display: flex;
@@ -42,6 +44,21 @@
     display: flex;
     flex-direction: column;
     padding: 12px;
+    border-bottom: 1px solid lightgray;
+    cursor: pointer;
+}
+.dashboard__note:hover{
+    background-color: grey;
+}
+.dashboard__note:active{
+    background-color: darkgray;
+}
+.dashboard__note > p{
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.5rem;
 }
 .dashboard__selectedNotePane{
     flex: 0.5;
@@ -50,4 +67,7 @@
 .setActive{
     background-color: darkgray !important;
     border: 1px solid black;
+}
+.selected{
+    background-color: black !important;
 }
