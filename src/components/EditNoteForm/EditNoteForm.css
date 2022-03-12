@@ -1,0 +1,64 @@
+.editNoteForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+.editNoteForm__cancelIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: grey;
+    cursor: pointer;
+}
+.editNoteForm__notesHeader{
+    width: 95%;
+    border: 1px solid lightgrey;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+}
+.editNoteForm__notesHeader > input{
+    border: none;
+    flex: 1;
+}
+.editNoteForm__notesHeader > input:focus{
+    outline: none;
+}
+.editNoteForm > p{
+    margin-top: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+} 
+.editNoteForm__notesTags{
+    margin-top: 15px;
+}
+.editNoteForm__notesContent{
+    width: 95%;
+    height: 450px;
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+.editNoteForm__notesContent > textarea {
+    border: none;
+    flex: 1;
+}
+.editNoteForm__notesContent > textarea:focus{
+    outline: none;
+}
+.editNoteForm > button{
+    width: 200px;
+    border: none;
+    background-color: #636468;
+    color: white;
+    padding: 15px;
+    border-radius: 999px;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.editNoteForm__notesForm > h2{
+    margin-top: 15px;
+}

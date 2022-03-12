@@ -46,12 +46,23 @@
     padding: 12px;
     border-bottom: 1px solid lightgray;
     cursor: pointer;
+    position: relative;
 }
 .dashboard__note:hover{
     background-color: grey;
 }
 .dashboard__note:active{
     background-color: darkgray;
+}
+.dashboard__noteDelete{
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    cursor: pointer !important;
+    display: none !important;
+}
+.dashboard__note:hover .dashboard__noteDelete{
+    display: block !important;
 }
 .dashboard__note > p{
     max-width: 90%;

@@ -14,11 +14,14 @@ import { selectNote } from '../../redux/slices/appSlice';
 import { useDispatch } from 'react-redux';
 import { notesOrder } from '../../utils';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import EditNoteForm from '../../components/EditNoteForm/EditNoteForm';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function Dashboard() {
     
     const[editModeOn,setEditModeOn] = useState(false);
+    const[editCurrentNote,setEditCurrentNote] = useState(false);
     const currentlySelectedFolder = useSelector((state) => state.ElementReducer.selectedFolderId);
     const currentlySelectedNote = useSelector((state) => state.ElementReducer.selectedNoteId);
     const [allFolders,setAllFolders] = useState([]); 
@@ -188,6 +191,12 @@ function Dashboard() {
             window.alert("Please select a folder");
             return;
         }
+
+        //if the note is selected should deselect it 
+        //then set the state to show the notes creation form....
+        dispatch(selectNote({
+            selectedNoteId: null,
+        }))
         setEditModeOn(true);
     }
 
@@ -214,9 +223,29 @@ function Dashboard() {
             console.log("Error getting document:", error);
         })  
 
-        console.log(currentlySelectedNote)
-
     }
+
+    //function to handle delete operation of the note
+    const deleteNote = async(id) =>{
+        const del = window.confirm("Sure to delete this entry ?");
+
+        if(!del) return;
+
+        try{
+            await database.user.doc(currentUser.uid).collection('notes')
+            .doc(id).delete()
+
+            if(currentlySelectedNote.selectedNoteId.id == id){
+                dispatch(selectNote({
+                    selectedNoteId : null
+                }))
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+
+    }  
     
     return (
         <div className="dashboard">
@@ -250,12 +279,15 @@ function Dashboard() {
                                 {notesToDisplay.map((note,index)=>(
                                     <Draggable key={note.id} draggableId={note.id} index={index}>
                                         {(provided)=>(
-                                            <div className={`dashboard__note ${(currentlySelectedNote?.selectedNoteId.id == note.id) ? "selected":""}`} id={note.id}
+                                            <div className={`dashboard__note ${(currentlySelectedNote?.selectedNoteId?.id == note.id) ? "selected":""}`} id={note.id}
                                             draggable="true" 
                                             onClick={()=>handleClickOnNote(note.id)}
                                             ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                 <h4>{note.noteHeading}</h4>
                                                 <p>{note.noteBody}</p>
+                                                <DeleteIcon 
+                                                className="dashboard__noteDelete" 
+                                                onClick={()=>deleteNote(note.id)}/>
                                             </div>
                                         )}
                                     </Draggable>
@@ -269,7 +301,13 @@ function Dashboard() {
                     {(currentlySelectedNote?.selectedNoteId == null) ? (
                         <NotesForm cancelEdit={()=>setEditModeOn(false)}/>
                     ):(
-                        <NoteSelected onEdit={()=>setEditModeOn(true)}/>
+                        <>
+                        {!editCurrentNote ? (
+                            <NoteSelected onEdit={()=>setEditCurrentNote(true)}/>
+                        ):(
+                            <EditNoteForm cancelEdit={()=>setEditCurrentNote(false)}/>
+                        )}
+                        </>
                     )}
                 </div>
             </div>
