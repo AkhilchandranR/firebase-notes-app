@@ -222,6 +222,7 @@ function Dashboard() {
         }).catch((error) => {
             console.log("Error getting document:", error);
         })  
+        console.log(currentlySelectedNote)
 
     }
 
@@ -284,6 +285,11 @@ function Dashboard() {
                                             onClick={()=>handleClickOnNote(note.id)}
                                             ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                 <h4>{note.noteHeading}</h4>
+                                                <span className="notes__tags">
+                                                    {(note?.tags)?.map((tag)=>(
+                                                        <p># {tag}</p>
+                                                    ))}
+                                                </span>
                                                 <p>{note.noteBody}</p>
                                                 <DeleteIcon 
                                                 className="dashboard__noteDelete" 

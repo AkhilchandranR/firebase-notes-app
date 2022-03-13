@@ -32,6 +32,7 @@
 } 
 .notesForm__notesTags{
     margin-top: 15px;
+    width: 95%;
 }
 .notesForm__notesContent{
     width: 95%;
@@ -61,4 +62,36 @@
 }
 .notesForm__notesForm > h2{
     margin-top: 15px;
+}
+
+/* styles for input tags */
+.notesForm__tagInput{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid lightgrey;
+    padding: 7px;
+    width: 100%;
+}
+.notesForm__tagInput > ul{
+    display: flex;
+}
+.notesForm__tagInput > ul > li{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+    color: white;
+    padding: 4px;
+    margin: 0px 3px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.notesForm__tagInput > input{
+    border: none;
+    flex: 1;
+}
+.notesForm__tagInput > input:focus{
+    outline: none;
 }

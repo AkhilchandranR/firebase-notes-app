@@ -18,6 +18,11 @@ function NoteSelected({ onEdit }) {
                 <p>Created By: {currentUser?.email}</p>
                 <div className="noteSelected__notesTags">
                     <p>Tags:</p>
+                    <ul className="noteSelected__tags">
+                        {(currentlySelectedNote?.selectedNoteId?.tags).map((tag,index)=>(
+                            <li># {tag}</li>
+                        ))}
+                    </ul>
                 </div>
                 <div className="noteSelected__notesContent">
                     <p>{currentlySelectedNote?.selectedNoteId?.noteBody}</p>

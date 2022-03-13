@@ -82,3 +82,19 @@
 .selected{
     background-color: black !important;
 }
+.notes__tags{
+    display: flex;
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    margin-top: 6px;
+}
+.notes__tags > p{
+    background-color: lightgrey;
+    color: darkslategray;
+    padding: 4px;
+    margin-right: 5px;
+    font-size: 1rem;
+    border-radius: 4px;
+}

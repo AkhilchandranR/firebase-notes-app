@@ -7,3 +7,16 @@
     right: 0;
     color: grey;
 }
+.noteSelected__tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+.noteSelected__tags > li{
+    list-style-type: none;
+    background-color: grey;
+    color: white;
+    padding: 4px;
+    margin: 0 4px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
